@@ -1,42 +1,11 @@
+<div class="container">
 
-  <form>
-
-  <%= form_with(model: product, local: true) do |form| %>
-
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
-      <ul>
-      <% @product.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+  <%= bootstrap_form_with(model: @product, local: true, label_errors: true) do |f| %>
+    <%= f.text_field :title, label: "Product Name" %>
+    <%= f.text_area :description %>
+    <%= f.text_field :image_url %>
+    <%= f.number_field :price %>
+    <%= f.submit "Create" %>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, rows: 10, cols: 30 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image_url %>
-    <%= form.text_field :image_url %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-</form>
+</div>
+</div>
