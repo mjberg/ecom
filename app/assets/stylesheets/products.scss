@@ -1,0 +1,14 @@
+.products {
+  padding: 0.5em;
+
+
+
+  td.image {
+    @media (min-width: 30em) {
+      display: block;
+      img {
+        height: 11.3em;
+      }
+    }
+  }
+}

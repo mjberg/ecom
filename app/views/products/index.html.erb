@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<<div class="container">
+<div class="container">
 
 
 
@@ -9,10 +9,10 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Title</th>
+      <th>Picture</th>
       <th>Description</th>
-      <th>Image url</th>
       <th>Price</th>
+      <th>Actions </th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,10 +20,18 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= product.title %></td>
-        <td><%= product.description %></td>
-        <td><%= product.image_url %></td>
-        <td><%= product.price %></td>
+        <td class="image">
+          <%= image_tag(product.image_url, class: 'list_image') %>
+        </td>
+        <td class="description">
+          <h3><%= product.title %></h3>
+          <p>
+            <%= truncate(strip_tags(product.description), length: 225) %><%= link_to 'see product details', product %>
+            </p>
+        
+            </td>
+
+        <td><%= number_to_currency(product.price) %></td>
         <td>
           <div class="btn btn-outline-primary">
             <%= link_to 'Show', product %>
