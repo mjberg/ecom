@@ -24,6 +24,12 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+  development:
+    default: &default
+    adapter: postgresql
+    encoding: unicode
+    database: db/developmentpg
+
 production:
   <<: *default
   database: db/production.sqlite3
