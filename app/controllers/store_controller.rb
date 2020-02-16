@@ -1,6 +1,9 @@
 class StoreController < ApplicationController
 
-# the order of methods matter. e.g. if I put the coutner method first here it breaks the page.
+  include CurrentCart
+  before_action :set_cart
+
+# the order of methods matter. e.g. if I put the coutner method first here it breaks the page. Why is that?
 
    def index
     @count = counter

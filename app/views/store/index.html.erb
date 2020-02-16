@@ -2,11 +2,7 @@
   <aside id="notice"><%= notice %></aside>
 <% end %>
 
-<div class="container">
-
   <h1 class="title">Welcome to My Store</h1>
-
-  <h2 class="card center"><%= @counter_message %></h2>
 
   <ul class="catalog">
     <%= @products.each do |product| %>
@@ -23,4 +19,9 @@
 </li>
 <% end %>
   </ul>
+  <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Why Haven't You Bought Something Yet?</h5>
+    <p class="card-text"><%= @counter_message %></p>
+  </div>
 </div>
