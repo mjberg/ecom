@@ -37,14 +37,19 @@
     <header>
       <h1><%= @page_title %></h1>
     </header>
-    <section class="content">
-      <nav class="side_nav">
-        <div id="cart" class="carts">
-          <%= render @cart %>
-          </div> 
-    </section>
+    <div class="container-fluid">
+      <div class="row">
+    <div class="col-sm-3">
+    <div class="card">
+         <%= render @cart %>
+    </div>
+  </div>
+  <div class="col">
     <main class='<%= controller.controller_name %>'>
     <%= yield %>
     </main>
+    </div>
+  </div>
+</div>
   </body>
 </html>

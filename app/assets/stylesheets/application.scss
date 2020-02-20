@@ -52,7 +52,11 @@ body {
     padding: 1.41em;
     @media (min-width: 30em) {
       margin: 0; //desktop doesn't need things
-    
+
     }
   }
+}
+
+card-body {
+  font-size: 12;
 }

@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .card {
-  padding-left: 50px;
+  padding-left: 0px;
 }
 .carts {
   table {
@@ -45,4 +45,8 @@
   input[type="submit"]:hover {
     background-color: #992;
   }
+}
+
+.card h2 {
+  color: green;
 }
