@@ -18,4 +18,4 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to store_index_url, notice: "logged out"
   end
-end
+end 

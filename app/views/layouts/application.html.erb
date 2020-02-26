@@ -14,21 +14,30 @@
     <%= image_tag("logo.svg") %>
   </a>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">Products</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <a class="navbar-brand" href="/">Store</a>
 
+<% if session[:user_id] %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="<% carts_path %>">Cart<span class="sr-only">(current)</span></a>
+          <a class="nav-link", <%= link_to 'Orders', orders_path %><span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link", <%= link_to 'Products', products_path %><span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link", <%= link_to 'Users', users_path %><span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Check Out</a>
+          <a class="nav-link", <%= link_to 'Logout', logout_url, method: :delete %></a>
         </li>
       </ul>
     </div>
+    <% else %>
+
+    <a class="navbar-brand" <%= link_to 'Login', login_path %></a>
+
+    <% end %>
   </nav>
 </nav>
   </head>
