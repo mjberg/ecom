@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+  include CurrentCart
+  before_action :set_cart, only: [:new, :create]
+  before_action :ensure_cart_isnt_empty, only: :new
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   skip_before_action :authorize, only: [:new, :create]
 
@@ -64,6 +67,12 @@ class OrdersController < ApplicationController
   end
 
   private
+
+  def ensure_cart_isnt_empty
+    if @cart.line_items.empty?
+      redirect_to store_index_url, notice: 'your cart is empty'
+    end
+  end 
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
