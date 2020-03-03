@@ -1,6 +1,6 @@
 class StoreController < ApplicationController
   skip_before_action :authorize
-  
+
   include CurrentCart
   before_action :set_cart
 
@@ -10,6 +10,8 @@ class StoreController < ApplicationController
     @count = counter
     @counter_message = "you've been to this page #{@count} times"
     @products = Product.order(:title)
+    # what is going on here? I'm exposing the proudct variable
+    @product = Product
   end
 
 private

@@ -20,9 +20,9 @@
   </table>
   <div class="actions">
 <%= button_to 'Empty Cart', cart, method: :delete,
-      data: { confirm: 'Are you sure?' } %>
+      data: { confirm: 'wAre you sure?' } %>
 
-<%= button_to 'Checkout', new_order_path, method: :get, class: "checkout" %>
+<%= button_to 'Checkout', checkout_create_path, method: :post, class: "checkout", params: { :cart_id => cart.id }, remote: true %>
 </div>
   </article>
 </div>
