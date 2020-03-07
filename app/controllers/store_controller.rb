@@ -8,7 +8,7 @@ class StoreController < ApplicationController
 
    def index
     @count = counter
-    @counter_message = "you've been to this page #{@count} times"
+    @counter_message = "you know you want to - you've been to this page #{@count} times, buy it already"
     @products = Product.order(:title)
     # what is going on here? I'm exposing the proudct variable
     @product = Product

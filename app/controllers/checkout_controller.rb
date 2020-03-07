@@ -8,12 +8,12 @@ class CheckoutController < ApplicationController
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
-      line_items: @cart.map do |i|
+      line_items: @cart.line_items.map do |i|
         data = {
         name: i.product.description,
-        amount: i.product.price_cents,
+        amount: i.product.price,
         currency: 'usd',
-        quantity: i.qty,
+        quantity: '1',
       }
     end,
       success_url: checkout_success_url,

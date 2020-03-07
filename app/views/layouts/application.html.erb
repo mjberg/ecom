@@ -49,8 +49,14 @@
     <div class="container-fluid">
       <div class="row">
     <div class="col-sm-3">
-    <div class="card">
+        <div class="card">
          <%= render_if @cart && @cart.line_items.any?, @cart %>
+         </div>
+         <div class="card">
+         <div class="card-body">
+           <h5 class="card-title">Why Haven't You Bought Something Yet?</h5>
+           <p class="card-text"><%= @counter_message %></p>
+         </div>
     </div>
   </div>
   <div class="col">
