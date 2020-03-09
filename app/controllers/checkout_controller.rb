@@ -6,12 +6,12 @@ class CheckoutController < ApplicationController
 
     Stripe.api_key = 'sk_test_6EL9yHe00gASQ5yp6ZSXmTzQ'
 
-    session = Stripe::Checkout::Session.create(
+    @session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: @cart.line_items.map do |i|
         data = {
         name: i.product.description,
-        amount: i.product.price,
+        amount: '400',
         currency: 'usd',
         quantity: '1',
       }
@@ -19,7 +19,6 @@ class CheckoutController < ApplicationController
       success_url: checkout_success_url,
       cancel_url: checkout_cancel_url,
     )
-
 
     respond_to do |format|
       format.js # render create.js.erb
