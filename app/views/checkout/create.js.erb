@@ -1,4 +1,5 @@
-const stripe = Stripe('<%= Rails.configuration.stripe[:publishable_key]%>')
+var stripe = Stripe('pk_test_MgeTC69s822jaReKF4agGYk7');
+
 
 stripe.redirectToCheckout({
   sessionId: '<%= @session.id %>'

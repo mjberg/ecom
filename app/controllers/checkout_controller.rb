@@ -10,10 +10,11 @@ class CheckoutController < ApplicationController
       payment_method_types: ['card'],
       line_items: @cart.line_items.map do |i|
         data = {
-        name: i.product.description,
-        amount: '400',
+        name: strip_tags(i.product.title),
+        description: strip_tags(i.product.description),
+        amount: i.product.price.to_i,
         currency: 'usd',
-        quantity: '1',
+        quantity: i.quantity,
       }
     end,
       success_url: checkout_success_url,
@@ -31,4 +32,9 @@ class CheckoutController < ApplicationController
 
   def cancel
   end
+
+  def strip_tags(string)
+    ActionView::Base.full_sanitizer.sanitize(string)
+end
+
 end
