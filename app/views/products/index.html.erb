@@ -28,10 +28,10 @@
           <p>
             <%= truncate(strip_tags(product.description), length: 225) %><%= link_to 'see product details', product %>
             </p>
-        
+
             </td>
 
-        <td><%= number_to_currency(product.price) %></td>
+        <td><%= sprintf("$%2.2f", product.price) %></td>
         <td>
           <div class="btn btn-outline-primary">
             <%= link_to 'Show', product %>

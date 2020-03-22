@@ -12,7 +12,7 @@ class CheckoutController < ApplicationController
         data = {
         name: strip_tags(i.product.title),
         description: strip_tags(i.product.description),
-        amount: i.product.price.to_i,
+        amount: i.product.price,
         currency: 'usd',
         quantity: i.quantity,
       }
@@ -31,6 +31,7 @@ class CheckoutController < ApplicationController
   end
 
   def cancel
+    redirect_to '/'
   end
 
   def strip_tags(string)
