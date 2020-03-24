@@ -9,6 +9,8 @@ class Product < ApplicationRecord
 
   has_many :line_items
 
+  monetize :price_cents
+
   before_destroy :ensure_not_referenced_by_any_line_item
 
   private
@@ -18,5 +20,5 @@ class Product < ApplicationRecord
       errors.add(:base, 'line items present')
       throw :abort
     end
-  end 
+  end
 end

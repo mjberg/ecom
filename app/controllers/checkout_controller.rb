@@ -12,7 +12,7 @@ class CheckoutController < ApplicationController
         data = {
         name: strip_tags(i.product.title),
         description: strip_tags(i.product.description),
-        amount: i.product.price,
+        amount: i.product.price_cents,
         currency: 'usd',
         quantity: i.quantity,
       }

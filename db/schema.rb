@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 2020_03_20_154006) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "USD", null: false
   end
 
   create_table "users", force: :cascade do |t|

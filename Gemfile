@@ -11,6 +11,7 @@ gem 'pg'
 gem 'rails_12factor', group: :production
 gem "bootstrap_form", "~> 4.0"
 gem 'stripe'
+gem 'money-rails'
 
 
 
