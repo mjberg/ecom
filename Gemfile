@@ -8,7 +8,6 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'rb-readline'
 gem 'pg'
-gem 'rails_12factor', group: :production
 gem "bootstrap_form", "~> 4.0"
 gem 'stripe'
 gem 'money-rails'
@@ -61,6 +60,10 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'sqlite3'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
 
 group :test do
